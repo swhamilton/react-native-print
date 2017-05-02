@@ -2,6 +2,10 @@
 
 Print documents using React Native.
 
+## Why the Fork??
+I needed silent printing functionality, so I extended this library to give me a
+basic API to silent print. (iOS only)
+
 ## Installation
 
 Run `npm install react-native-print --save`
