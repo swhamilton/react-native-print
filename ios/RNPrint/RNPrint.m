@@ -68,14 +68,15 @@ RCT_EXPORT_METHOD(selectPrinter:(NSDictionary *)options
     // Create the react native view controller (so we can attach our printer selection popup to a view on iPads
     UIViewController *controller = RCTPresentedViewController();
     
+    // TODO: Make these options
     // Get screen size for positioning the dialog (on iPads)
     CGRect ScreenSize=[[UIScreen mainScreen] bounds];
     NSInteger dialogWidth = 100;
     NSInteger dialogHeight = 100;
     NSInteger width = ScreenSize.size.width;
     NSInteger height = ScreenSize.size.height;
-    NSInteger xPos = (width / 2) - (dialogWidth/2);
-    NSInteger yPos = (height / 2) - (dialogHeight/2);
+    NSInteger xPos = (width * 2/3) - (dialogWidth/2);
+    NSInteger yPos = 40;//(height / 2) - (dialogHeight/2);
     CGRect rect = CGRectMake(xPos, yPos, dialogWidth, dialogHeight);
     
     // Declare the completion block when the user has either picked a printer or canceled
@@ -102,7 +103,7 @@ RCT_EXPORT_METHOD(selectPrinter:(NSDictionary *)options
     
     if ( IDIOM == IPAD ) {
         /* Device is iPad */
-        [printPicker presentFromRect:(CGRect)rect inView:(UIView *)controller.view animated:YES completionHandler:
+        [printPicker presentFromRect:(CGRect)rect inView:(UIView *)controller.view animated:NO completionHandler:
          completion];
         
     } else {
@@ -146,7 +147,7 @@ RCT_EXPORT_METHOD(printWithoutDialog:(NSString *)filePath
             reject(RCTErrorUnspecified, nil, RCTErrorWithMessage(error.description));
         }
     }];
-
+    
 }
 
 
