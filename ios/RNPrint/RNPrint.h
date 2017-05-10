@@ -1,10 +1,10 @@
 
 //  Created by Christopher on 9/4/15.
+//  Modified by Scott Hamilton on 5/1/17
 
 #import <UIKit/UIKit.h>
-#import <React/RCTView.h>
-#import <React/RCTBridgeModule.h>
+#import <React/RCTBridge.h>
 
-@interface RNPrint : RCTView <RCTBridgeModule, UIPrintInteractionControllerDelegate, UIPrinterPickerControllerDelegate>
+@interface RNPrint : NSObject <RCTBridgeModule, UIPrintInteractionControllerDelegate, UIPrinterPickerControllerDelegate>
 
 @end
